@@ -16,14 +16,17 @@ app.post("/login", (req, res) => {
   if (!email || !password) {
     return res.status(400).json({ 
         message: "Email and password are required." });
+        console.log("Email and password are required.");
   }
   if (!email.includes("@")) {
     return res.status(400).json({ 
         message: "Invalid email format." });
+        console.log("Invalid email format.");
   }
   if (password.length < 8) {
     return res.status(400).json({ 
         message: "Password must be at least 8 characters long." });
+        console.log("Password must be at least 8 characters long.");
   }
   res.json({ message: "Login input validated successfully." });
 });

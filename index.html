@@ -35,17 +35,14 @@
         message.textContent = "Email and password cannot be empty.";
         return;
       }
-
       if (!email.includes("@")) {
         message.textContent = "Email must contain @.";
         return;
       }
-
       if (password.length < 8) {
         message.textContent = "Password must be at least 8 characters long.";
         return;
       }
-
       // Send to server
       try {
         const response = await fetch("http://localhost:3000/login", {
@@ -55,7 +52,6 @@
           },
           body: JSON.stringify({ email, password })
         });
-
         const data = await response.json();
         message.textContent = data.message;
       } catch (error) {
